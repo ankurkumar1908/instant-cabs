@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instant Cabs | Premium Ertiga Taxi Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --black: #0B0B0B;
+            --dark: #171717;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* ---------------------------------NAVBAR-------------------------------- */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            color: var(--gold);
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .menu-toggle{
+            display:none;
+            flex-direction:column;
+            cursor:pointer;
+            gap:5px;
+        }
+
+        .menu-toggle span{
+            width:28px;
+            height:3px;
+            background:#D4AF37;
+            border-radius:5px;
+            transition:.3s;
+        }
+
+        /* ------------------------------------------------HERO---------------------------------------- */
+        .hero {
+            height: 100vh;
+            background:
+                linear-gradient(rgba(0, 0, 0, .55), rgba(0, 0, 0, .75)),
+                url('hero-ertiga.jpg') center/cover no-repeat;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .hero span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            color: #ddd;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 10px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: black;
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--gold);
+            color: var(--gold);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+        }
+
+        /* -----------------------------------------------STATS-------------------------------------------- */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 50px 8%;
+            background: var(--dark);
+        }
+
+        .stat {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat h3 {
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        /* ---------------------------------------------SECTIONS--------------------------------------------------- */
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--gold);
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .about {
+            text-align: center;
+            max-width: 900px;
+            margin: auto;
+            color: #ddd;
+            line-height: 1.8;
+        }
+
+        /* --------------------------------------------------------------SERVICES--------------------------------------- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: .4s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+        }
+
+        .card h3 {
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        /* ---------------------------------------------------GALLERY-------------------------------------------- */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        /* ---------------------------------------------------VEHICLE-------------------------------------------- */
+        .vehicle-box {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .features {
+            margin-top: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .feature {
+            background: #111;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        /* ---------------------------------------------BOOKING----------------------------------------------- */
+        .booking {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .booking form {
+            display: grid;
+            gap: 15px;
+        }
+
+        .booking input,
+        .booking textarea {
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        .booking button {
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: var(--gold);
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* ---------------------------------------------FOOTER----------------------------------------------- */
+        footer {
+            background: #111;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer h3 {
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        /* ---------------------------------------------MOBILE-------------------------------------- */
+        .contact-buttons{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:0 0 35px}
+        .contact-buttons .btn{min-width:220px;text-align:center}
+        .btn i{margin-right:8px}
+        @media(max-width:768px){.contact-buttons{flex-direction:column;align-items:center}.contact-buttons .btn{width:100%;max-width:320px}}
+
+        @media(max-width:768px) {
+            .hero {
+                padding-top: 110px;
+                min-height: 100vh;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .menu-toggle{
+                display:flex;
+            }
+            .nav-links{
+                position:absolute;
+                top:70px;
+                left:0;
+                width:100%;
+                background:#111;
+                flex-direction:column;
+                align-items:center;
+                gap:0;
+                max-height:0;
+                overflow:hidden;
+                transition:max-height .4s ease;
+            }
+            .nav-links.active{
+                max-height:400px;
+            }
+            .nav-links li{
+                width:100%;
+                text-align:center;
+                border-bottom:1px solid rgba(255,255,255,.08);
+            }
+            .nav-links a{
+                display:block;
+                padding:18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-------------------------------------------------- NAVBAR ------------------------------------------------------------>
+    <nav class="navbar">
+        <div class="logo">Instant Cabs</div>
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#vehicle">Vehicle</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!------------------------------------------------- HERO ------------------------------------------------------>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                Premium <span>Ertiga Taxi Service</span><br>
+                in Gurgaon & Delhi NCR
+            </h1>
+            <p>
+                Looking for a reliable taxi service in Gurgaon or Delhi NCR? Instant Cabs
+                provides safe, affordable, and comfortable Ertiga taxi services for airport
+                transfers, local sightseeing, corporate travel, outstation trips, family
+                tours, and wedding transportation. Book your ride in seconds through
+                WhatsApp or call us anytime—we're available 24×7.
+            </p>
+            <p style="margin-top:25px;font-size:16px;color:#D4AF37;font-weight:500;">
+                ✓ 24×7 Available &nbsp;&nbsp;|&nbsp;&nbsp;
+                ✓ Professional Driver &nbsp;&nbsp;|&nbsp;&nbsp;
+                ✓ Clean & Sanitized Ertiga &nbsp;&nbsp;|&nbsp;&nbsp;
+                ✓ On-Time Pickup
+            </p>
+            <a href="https://wa.me/917838752142?text=Hi%20Instant%20Cabs!%20I%20would%20like%20to%20book%20a%20ride." class="btn btn-primary" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book Your Ride</a>
+            <a href="tel:+917838752142" class="btn btn-secondary"><i class="fa-solid fa-phone"></i> Call Now</a>
+        </div>
+    </section>
+
+    <!-------------------------------------------------- STATS -------------------------------------------------------->
+    <div class="stats">
+        <div class="stat">
+            <h3>24×7 Service</h3>
+            <p>Always Available</p>
+        </div>
+        <div class="stat">
+            <h3>Delhi NCR</h3>
+            <p>Complete Coverage</p>
+        </div>
+        <div class="stat">
+            <h3>Airport Transfers</h3>
+            <p>On-Time Pickup</p>
+        </div>
+        <div class="stat">
+            <h3>Outstation Trips</h3>
+            <p>Comfortable Travel</p>
+        </div>
+    </div>
+
+    <!-------------------------------------------------- ABOUT ----------------------------------------------------->
+    <section id="about">
+        <h2 class="section-title">About Instant Cabs</h2>
+        <div class="about">
+            <p>
+                At <strong>Instant Cabs</strong>, we are committed to providing safe, 
+                reliable, and comfortable taxi services across Gurgaon, Delhi NCR, and 
+                nearby cities. Whether you need an airport transfer, local ride, corporate 
+                travel, or an outstation trip, our well-maintained Maruti Suzuki Ertiga 
+                and experienced drivers ensure a smooth and hassle-free journey. With 
+                transparent pricing, punctual service, and 24×7 availability, Instant 
+                Cabs is your trusted travel partner for every ride.
+            </p>
+        </div>
+    </section>
+
+    <!------------------------------------------------------------ SERVICES ------------------------------------------------------->
+
+    <section id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="card">
+                <h3>✈ Airport Transfers</h3>
+                <p>Reliable airport pickup and drop services.</p>
+            </div>
+            <div class="card">
+                <h3>🚖 Local City Rides</h3>
+                <p>Convenient travel throughout Delhi NCR.</p>
+            </div>
+            <div class="card">
+                <h3>🏢 Corporate Travel</h3>
+                <p>Professional transportation for business trips.</p>
+            </div>
+            <div class="card">
+                <h3>🛣 Outstation Trips</h3>
+                <p>Comfortable long-distance travel for families.</p>
+            </div>
+            <div class="card">
+                <h3>💍 Wedding Travel</h3>
+                <p>Transportation services for wedding events.</p>
+            </div>
+            <div class="card">
+                <h3>👨‍👩‍👧 Family Tours</h3>
+                <p>Enjoy safe and comfortable family journeys.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-------------------------------------------------- VEHICLE ----------------------------------------------------->
+
+    <section id="vehicle">
+        <h2 class="section-title">Our Vehicle</h2>
+        <div class="vehicle-box">
+            <h3>Maruti Suzuki Ertiga</h3>
+            <p style="margin-top:15px;">
+                A spacious and comfortable MPV suitable for airport transfers,
+                family travel and outstation journeys.
+            </p>
+            <div class="features">
+                <div class="feature">✓ 6+1 Seating</div>
+                <div class="feature">✓ Air Conditioned</div>
+                <div class="feature">✓ Large Luggage Space</div>
+                <div class="feature">✓ Clean & Sanitized</div>
+                <div class="feature">✓ Comfortable Long Trips</div>
+                <div class="feature">✓ Well Maintained</div>
+            </div>
+        </div>
+    </section>
+
+    <!------------------------------------------------------------ GALLERY ------------------------------------------------------->
+
+    <section id="gallery">
+        <h2 class="section-title">Vehicle Gallery</h2>
+        <div class="gallery">
+            <img src="images/ertiga-1.jpg" alt="car-image-1">
+            <img src="images/ertiga-2.jpg" alt="car-image-2">
+            <img src="images/ertiga-3.jpg" alt="car-image-3">
+            <img src="images/ertiga-4.jpg" alt="car-image-4">
+        </div>
+    </section>
+
+    <!------------------------------------------------------------ CONTACT ------------------------------------------------------->
+
+    <section id="contact">
+        <h2 class="section-title">Book Your Ride</h2>
+        <div class="contact-buttons">
+            <a href="https://wa.me/917838752142?text=Hi%20Instant%20Cabs!%20I%20would%20like%20to%20book%20a%20ride." class="btn btn-primary" target="_blank"><i class="fa-brands fa-whatsapp"></i> Book Your Ride</a>
+            <a href="tel:+917838752142" class="btn btn-secondary"><i class="fa-solid fa-phone"></i> Call Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <h3>Instant Cabs</h3>
+        <p>Premium Ertiga Taxi Service in Gurgaon & Delhi NCR</p>
+        <p style="margin-top:10px;">
+            Available 24×7
+        </p>
+    </footer>
+
+    <script>
+        // Smooth fade animation
+        const cards = document.querySelectorAll('.card');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(40px)';
+            card.style.transition = '0.6s';
+            observer.observe(card);
+        });
+
+        // Navbar animation
+        const menuToggle=document.getElementById("menu-toggle");
+        const navLinks=document.getElementById("nav-links");
+
+        menuToggle.addEventListener("click",()=>{
+            navLinks.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".nav-links a").forEach(link=>{
+            link.addEventListener("click",()=>{
+                navLinks.classList.remove("active");
+            });
+        });
+    </script>
+</body>
+
+</html>
